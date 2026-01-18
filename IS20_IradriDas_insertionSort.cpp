@@ -294,7 +294,6 @@ int main()
     // ' Source - https://stackoverflow.com/q
     // ' Posted by learner, modified by community. See post 'Timeline' for change history
     // ' Retrieved 2026-01-18, License - CC BY-SA 3.0
-
     string command = "python -u IS20_IradriDas_plot_insertion_sort.py";
     system(command.c_str());
 
