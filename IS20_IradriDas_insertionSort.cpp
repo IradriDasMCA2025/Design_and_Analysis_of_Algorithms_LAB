@@ -26,7 +26,7 @@ void generate_data()
     uniform_int_distribution<int> random_name(0, names.size() - 1); // Produces random integer values i, uniformly distributed on the closed interval [min, max]
     uniform_real_distribution<double> random_age(20.0, 30.0);       // Produces random floating-point values x, uniformly distributed on the interval [min, max)
 
-    fs::create_directory("datasets"); // c++ 17
+    fs::create_directory("datasets"); // required c++ 17 or higher
 
     for (int n = 10; n < 101; n = n + 10)
     {
@@ -285,6 +285,18 @@ int main()
         }
         out_age_name << n << "," << (totalComparisons / 10.0) << "," << (totalAssignment / 10.0) << "\n";
     }
+
+    // closing the files
+    out_age.close();
+    out_name.close();
+    out_age_name.close();
+
+    // ' Source - https://stackoverflow.com/q
+    // ' Posted by learner, modified by community. See post 'Timeline' for change history
+    // ' Retrieved 2026-01-18, License - CC BY-SA 3.0
+
+    string command = "python -u IS20_IradriDas_plot_insertion_sort.py";
+    system(command.c_str());
 
     return 0;
 }
