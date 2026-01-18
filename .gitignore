@@ -1,3 +1,9 @@
 *csv
 *exe
 *png
+
+datasets/
+plots/
+results_for_InsertionSort_byAge/
+results_for_InsertionSort_byAge_Name/
+results_for_InsertionSort_byAge_Name/
