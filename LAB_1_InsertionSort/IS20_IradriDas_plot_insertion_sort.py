@@ -4,18 +4,11 @@ import os
 
 
 def plot_comparisons_and_assignments(csv_file, title, output_image):
-    """
-    Generic plotting function for insertion sort analysis.
 
-    Parameters:
-    - csv_file: path to CSV file
-    - title: plot title
-    - output_image: path to save the plot image
-    """
-
+    # Read the CSV
     df = pd.read_csv(csv_file)
 
-    # Extract data
+    # Pull out columns explicitly
     x = df["n"].values
     y_avg_comp = df["avg_comparisons"].values
     y_avg_assign = df["avg_assignment"].values
@@ -32,7 +25,6 @@ def plot_comparisons_and_assignments(csv_file, title, output_image):
     ax.set_title(title)
     ax.grid(True)
 
-    # Legend is REQUIRED when plotting multiple curves
     ax.legend()
 
     # Save and close
@@ -43,21 +35,23 @@ def plot_comparisons_and_assignments(csv_file, title, output_image):
 # Create output directory safely
 os.makedirs("plots", exist_ok=True)
 
-# Comparisons and Assignments plot for InsertionSort_byAge
+
+# Comparisons and Assignments plot for Insertion Sort: By Age
 plot_comparisons_and_assignments(
     "IS20_IradriDas_results_age.csv",
     "Insertion Sort by Age",
     os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byAge.png"),
 )
 
-# Comparisons and Assignments plot for InsertionSort_byName
+
+# Comparisons and Assignments plot for Insertion Sort: By Name
 plot_comparisons_and_assignments(
     "IS20_IradriDas_results_name.csv",
     "Insertion Sort by Name",
     os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byName.png"),
 )
 
-# Comparisons and Assignments plot for InsertionSort_byAgeThenName
+# Comparisons and Assignments plot for Insertion Sort: By Age then Name
 plot_comparisons_and_assignments(
     "IS20_IradriDas_results_age_name.csv",
     "Insertion Sort by Age then Name",
