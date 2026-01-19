@@ -1,123 +1,65 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-
 import os
 
 
-def plot_avg_assignments(csv_file, title, output_image):
-    df = pd.read_csv(csv_file)  # Reads the CSV file into a Pandas DataFrame.
+def plot_comparisons_and_assignments(csv_file, title, output_image):
+    """
+    Generic plotting function for insertion sort analysis.
 
-    # extracting x and y axis
+    Parameters:
+    - csv_file: path to CSV file
+    - title: plot title
+    - output_image: path to save the plot image
+    """
+
+    df = pd.read_csv(csv_file)
+
+    # Extract data
     x = df["n"].values
-    y = df["avg_assignment"].values
+    y_avg_comp = df["avg_comparisons"].values
+    y_avg_assign = df["avg_assignment"].values
 
+    # Create plot
     fig, ax = plt.subplots()
-    ax.plot(x, y, marker="o")
 
+    ax.plot(x, y_avg_comp, marker="o", label="Average Comparisons")
+    ax.plot(x, y_avg_assign, marker="s", label="Average Assignments")
 
-    ax.set_title(title)
+    # Labels and title
     ax.set_xlabel("n (number of records)")
-    ax.set_ylabel("Average number of assignments")
+    ax.set_ylabel("Operation Count")
+    ax.set_title(title)
     ax.grid(True)
 
-    # plt.show()
+    # Legend is REQUIRED when plotting multiple curves
+    ax.legend()
+
+    # Save and close
     fig.savefig(output_image)
+    plt.close(fig)
 
 
-def plot_avg_comparisions(csv_file, title, output_image):
-    df = pd.read_csv(csv_file)  # Reads the CSV file into a Pandas DataFrame.
+# Create output directory safely
+os.makedirs("plots", exist_ok=True)
 
-    # extracting x and y axis
-    x = df["n"].values
-    y = df["avg_comparisons"].values
-
-    fig, ax = plt.subplots()
-    ax.plot(x, y, marker="o")
-
-
-    ax.set_title(title)
-    ax.set_xlabel("n (number of records)")
-    ax.set_ylabel("Average number of comparisons")
-    ax.grid(True)
-
-    # plt.show()
-    fig.savefig(output_image)
-
-    # fig, ax = plt.plot(x,y)
-    # # ax.plot(x, y)
-    # ax.scatter(x, y)
-    # ax.xlabel("n (number of records)")
-    # ax.ylabel("Average number of comparisons")
-    # ax.title(title)
-
-    # fig.show()
-    # print(df)
-
-    # plt.plot(x, y)
-    # plt.scatter(x, y)
-    # plt.xlabel("n (number of records)")
-    # plt.ylabel("Average number of comparisons")
-    # plt.title(title)
-    # plt.grid(True)
-    # plt.show()
-
-    # plt.savefig(output_image)
-    # plt.clf()
-
-
-os.makedirs("plots")
-
-# Plots for avg_comparisions
-plot_avg_comparisions(
+# Comparisons and Assignments plot for InsertionSort_byAge
+plot_comparisons_and_assignments(
     "IS20_IradriDas_results_age.csv",
-    "Insertion Sort by Age(plot for averege comparisions)",
-    "plots\\IS20_IradriDas_plot_avg_comparisions_byAge.png",
+    "Insertion Sort by Age",
+    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byAge.png"),
 )
-plot_avg_comparisions(
+
+# Comparisons and Assignments plot for InsertionSort_byName
+plot_comparisons_and_assignments(
     "IS20_IradriDas_results_name.csv",
-    "Insertion Sort by Name(plot for averege comparisions)",
-    "plots\\IS20_IradriDas_plot_avg_comparisions_byName.png",
+    "Insertion Sort by Name",
+    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byName.png"),
 )
-plot_avg_comparisions(
+
+# Comparisons and Assignments plot for InsertionSort_byAgeThenName
+plot_comparisons_and_assignments(
     "IS20_IradriDas_results_age_name.csv",
-    "Insertion Sort by Age then Name(plot for averege comparisions)",
-    "plots\\IS20_IradriDas_plot_avg_comparisions_byAgeThenName.png",
+    "Insertion Sort by Age then Name",
+    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byAgeThenName.png"),
 )
-
-# Plots for avg_assignments
-plot_avg_assignments(
-    "IS20_IradriDas_results_age.csv",
-    "Insertion Sort by Age(plot for averege assignments)",
-    "plots\\IS20_IradriDas_plot_avg_assignments_byAge.png",
-)
-plot_avg_assignments(
-    "IS20_IradriDas_results_name.csv",
-    "Insertion Sort by Name(plot for averege assignments)",
-    "plots\\IS20_IradriDas_plot_avg_assignments_byName.png",
-)
-plot_avg_assignments(
-    "IS20_IradriDas_results_age_name.csv",
-    "Insertion Sort by Age then Name(plot for averege assignments)",
-    "plots\\IS20_IradriDas_plot_avg_assignments_byAgeThenName.png",
-)
-
-
-# df = pd.read_csv("results_age.csv")
-# # print(df)
-
-# x = df["n"].values
-# print(x)
-# y = df["avg_comparisons"].values
-# print(y)
-
-# plt.plot(x, y)
-# plt.scatter(x, y)
-# plt.xlabel("n (number of records)")
-# plt.ylabel("Average number of comparisons")
-# plt.title("Insertion Sort by Age")
-# plt.grid(True)
-# plt.show()
-
-# plt.savefig("plot_age.png")
-# plt.clf()
