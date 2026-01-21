@@ -38,22 +38,22 @@ os.makedirs("plots", exist_ok=True)
 
 # Comparisons and Assignments plot for Insertion Sort: By Age
 plot_comparisons_and_assignments(
-    "IS20_IradriDas_results_age.csv",
+    "R_No_20_P1_IradriDas_results_age.csv",
     "Insertion Sort by Age",
-    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byAge.png"),
+    os.path.join("plots", "R_No_20_P1_IradriDas_plot_avg_comparisons_byAge.png"),
 )
 
 
 # Comparisons and Assignments plot for Insertion Sort: By Name
 plot_comparisons_and_assignments(
-    "IS20_IradriDas_results_name.csv",
+    "R_No_20_P1_IradriDas_results_name.csv",
     "Insertion Sort by Name",
-    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byName.png"),
+    os.path.join("plots", "R_No_20_P1_IradriDas_plot_avg_comparisons_byName.png"),
 )
 
 # Comparisons and Assignments plot for Insertion Sort: By Age then Name
 plot_comparisons_and_assignments(
-    "IS20_IradriDas_results_age_name.csv",
+    "R_No_20_P1_IradriDas_results_age_name.csv",
     "Insertion Sort by Age then Name",
-    os.path.join("plots", "IS20_IradriDas_plot_avg_comparisons_byAgeThenName.png"),
+    os.path.join("plots", "R_No_20_P1_IradriDas_plot_avg_comparisons_byAgeThenName.png"),
 )

@@ -52,7 +52,7 @@ void generate_data()
     {
         for (int run = 1; run < 11; run++)
         {
-            string file_name = "datasets/IS20_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
+            string file_name = "datasets/R_No_20_P1_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
             ofstream fout(file_name);
             fout << "name,age\n"; // heading for the csv file
 
@@ -83,7 +83,7 @@ void write_sorted_records_to_CSV(vector<Person> record, int n, int run, const st
           - File format: name,age
     */
 
-    string file_name = directory + "/IS20_IradriDas_sorted_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
+    string file_name = directory + "/R_No_20_P1_IradriDas_sorted_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
     ofstream fout(file_name);
     fout << "name,age\n"; // heading for the csv file
 
@@ -203,7 +203,6 @@ void insertionSort_byName(vector<Person> &list, long long &compare_counter, long
 
 void insertionSort_byAge_Name(vector<Person> &list, long long &compare_counter, long long &assign_counter)
 {
-
     // At first sorting on the basis of age then by name so that the ordering on age is maintained
     insertionSort_byAge(list, compare_counter, assign_counter);
     insertionSort_byName(list, compare_counter, assign_counter);
@@ -221,7 +220,7 @@ int main()
     fs::create_directory(directory); // Create output directory
 
     // CSV file to store average comparisons and assignments (age-based sort)
-    ofstream out_age("IS20_IradriDas_results_age.csv");
+    ofstream out_age("R_No_20_P1_IradriDas_results_age.csv");
     out_age << "n,avg_comparisons,avg_assignment\n";
 
     for (int n = 10; n <= 100; n = n + 10)
@@ -232,7 +231,7 @@ int main()
         for (int run = 1; run <= 10; run++)
         {
             // Construct dataset file name
-            string file_name = "datasets/IS20_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
+            string file_name = "datasets/R_No_20_P1_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
 
             // Read dataset from CSV
             vector<Person> record = read_records_from_CSV(file_name);
@@ -257,7 +256,7 @@ int main()
     fs::create_directory(directory);
 
     // CSV file to store average comparisons and assignments (name-based sort)
-    ofstream out_name("IS20_IradriDas_results_name.csv");
+    ofstream out_name("R_No_20_P1_IradriDas_results_name.csv");
     out_name << "n,avg_comparisons,avg_assignment\n";
 
     for (int n = 10; n <= 100; n = n + 10)
@@ -267,7 +266,7 @@ int main()
 
         for (int run = 1; run <= 10; run++)
         {
-            string file_name = "datasets/IS20_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
+            string file_name = "datasets/R_No_20_P1_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
 
             vector<Person> record = read_records_from_CSV(file_name);
 
@@ -291,7 +290,7 @@ int main()
     fs::create_directory(directory);
 
     // CSV file to store average comparisons and assignments (age + name sort)
-    ofstream out_age_name("IS20_IradriDas_results_age_name.csv");
+    ofstream out_age_name("R_No_20_P1_IradriDas_results_age_name.csv");
     out_age_name << "n,avg_comparisons,avg_assignment\n";
 
     for (int n = 10; n <= 100; n = n + 10)
@@ -301,7 +300,7 @@ int main()
 
         for (int run = 1; run <= 10; run++)
         {
-            string file_name = "datasets/IS20_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
+            string file_name = "datasets/R_No_20_P1_IradriDas_dataset_n" + to_string(n) + "_instance_" + to_string(run) + ".csv";
 
             vector<Person> record = read_records_from_CSV(file_name);
 
@@ -329,7 +328,7 @@ int main()
     // ' Source - https://stackoverflow.com/questions/16962430/calling-python-script-from-c-and-using-its-output
     // ' Posted by learner, modified by community. See post 'Timeline' for change history
     // ' Retrieved 2026-01-18, License - CC BY-SA 3.0
-    string command = "python -u IS20_IradriDas_plot_insertion_sort.py";
+    string command = "python -u R_No_20_P1_IradriDas_plot_insertion_sort.py";
     system(command.c_str());
 
     return 0;
