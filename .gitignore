@@ -1,6 +1,7 @@
-*csv
-*exe
-*png
+*.csv
+*.exe
+*.png
+*.zip
 test.cpp
 
 datasets/
